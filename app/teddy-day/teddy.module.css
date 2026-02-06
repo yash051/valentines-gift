@@ -1,0 +1,139 @@
+/* app/teddy-day/teddy.module.css */
+
+/* Importing soft, bubbly fonts */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Varela+Round&display=swap');
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #fff3e0; /* Warm Cream Background */
+  font-family: 'Varela Round', sans-serif;
+  position: relative;
+}
+
+.card {
+  width: 90%;
+  max-width: 450px;
+  /* Warm Teddy Gradient (Peach to Cream) */
+  background: linear-gradient(to top, #e6b980 0%, #eacda3 100%);
+  border-radius: 25px;
+  padding: 35px 20px;
+  /* A "Stitched" border effect */
+  border: 3px dashed #8d6e63;
+  box-shadow: 0 10px 25px rgba(92, 64, 51, 0.2);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Decorative Corners */
+.cornerIcon {
+  position: absolute;
+  font-size: 1.8rem;
+  opacity: 0.9;
+  cursor: default;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+.topLeft { top: 15px; left: 15px; transform: rotate(-15deg); }
+.topRight { top: 15px; right: 15px; transform: rotate(15deg); }
+.bottomLeft { bottom: 15px; left: 15px; }
+.bottomRight { bottom: 15px; right: 15px; }
+
+.title {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.2rem;
+  color: #5d4037; /* Dark Chocolate Color */
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 0px rgba(255,255,255,0.4);
+  width: 100%;
+}
+
+.imageCircle {
+  width: 150px;
+  height: 150px;
+  background-color: #fff8e1;
+  border-radius: 50%;
+  margin-bottom: 25px;
+  /* Brown border matching the stitching */
+  outline: 2px dashed #8d6e63;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  position: relative; /* Needed for Next/Image */
+}
+
+/* The Note Area */
+.messageBox {
+  background-color: #fff;
+  width: 80%;
+  min-height: 140px; /* Slight increase for better spacing */
+  border-radius: 12px;
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: 3px 3px 0px rgba(141, 110, 99, 0.2);
+  border: 1px solid #efebe9;
+
+  /* Lines are now Soft Brown/Tan */
+  background-image: repeating-linear-gradient(white 0px, white 22px, #d7ccc8 23px);
+  line-height: 34px; /* Increased line-height to spacing out lines */
+  
+  text-align: center;
+  font-size: 1.1rem;
+  color: #4e342e;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.messageContent {
+  width: 100%;
+  margin-top: -10px; /* Adjusted for better centering */
+  white-space: pre-line;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 600px) {
+  .card {
+    width: 85%;
+    padding: 25px 15px;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  .imageCircle {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 20px;
+  }
+
+  .messageBox {
+    width: 100%;
+    font-size: 1rem;
+    min-height: auto;
+    padding-bottom: 15px;
+  }
+  
+  .cornerIcon {
+    font-size: 1.5rem;
+  }
+}

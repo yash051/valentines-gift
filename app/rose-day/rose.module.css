@@ -1,0 +1,183 @@
+/* app/rose-day/rose.module.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&family=Gotu&family=Rouge+Script&display=swap');
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #fff0f5; 
+  font-family: 'Gotu', sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+/* --- FALLING PETALS ANIMATION --- */
+.petal {
+  position: absolute;
+  background-color: #d81b60;
+  border-radius: 150% 0 150% 0;
+  animation: fall linear infinite;
+  opacity: 0.7;
+  z-index: 0;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+}
+
+.petal:nth-child(even) {
+  background-color: #ad1457;
+  border-radius: 0 150% 0 150%;
+}
+
+@keyframes fall {
+  0% { top: -10%; transform: translateX(0) rotate(0deg); opacity: 0; }
+  20% { opacity: 0.9; }
+  100% { top: 110%; transform: translateX(100px) rotate(360deg); opacity: 0; }
+}
+
+/* Petal Positions */
+.p1 { left: 10%; width: 15px; height: 15px; animation-duration: 8s; animation-delay: 0s; }
+.p2 { left: 25%; width: 20px; height: 20px; animation-duration: 10s; animation-delay: 2s; }
+.p3 { left: 40%; width: 12px; height: 12px; animation-duration: 6s; animation-delay: 4s; }
+.p4 { left: 60%; width: 18px; height: 18px; animation-duration: 9s; animation-delay: 1s; }
+.p5 { left: 75%; width: 14px; height: 14px; animation-duration: 7s; animation-delay: 3s; }
+.p6 { left: 90%; width: 16px; height: 16px; animation-duration: 11s; animation-delay: 5s; }
+
+.card {
+  width: 90%;
+  max-width: 450px;
+  background: linear-gradient(135deg, #ffc3a0 0%, #ffafbd 100%);
+  border-radius: 20px;
+  border: 4px solid #fff;
+  padding: 35px 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cornerRose {
+  position: absolute;
+  font-size: 2rem;
+  filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.2));
+}
+
+.topLeft { top: 10px; left: 10px; transform: rotate(-45deg); }
+.topRight { top: 10px; right: 10px; transform: rotate(45deg); }
+.bottomLeft { bottom: 10px; left: 10px; transform: rotate(-135deg); }
+.bottomRight { bottom: 10px; right: 10px; transform: rotate(135deg); }
+
+.title {
+  font-family: 'Rouge Script', cursive;
+  font-size: 3.2rem;
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  width: 100%;
+  line-height: 1.2;
+}
+
+.imageContainer {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.imageCircle {
+  width: 160px;
+  height: 160px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 5px solid rgba(255,255,255,0.6);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  position: relative; /* Needed for Next/Image fill */
+}
+
+.messageBox {
+  background-color: #fff; 
+  width: 90%;
+  min-height: 160px;
+  border-radius: 12px;
+  padding: 15px;
+  box-sizing: border-box;
+  position: relative;
+  background-image: repeating-linear-gradient(white 0px, white 23px, #f8bbd0 24px);
+  line-height: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.marathiPart {
+  margin-top: -10px;
+  font-family: 'Gotu', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #880e4f;
+  text-align: center;
+  width: 100%;
+}
+
+.englishPart {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #c2185b;
+  text-align: center;
+  margin-top: 2.5px;
+  width: 100%;
+}
+
+/* --- MOBILE ADJUSTMENTS (Add to bottom of rose.module.css) --- */
+@media (max-width: 600px) {
+  .card {
+    width: 85%;           /* Slightly narrower to show more background */
+    padding: 25px 15px;   /* Less padding inside the card */
+    max-height: 90vh;     /* Ensure it never exceeds screen height */
+  }
+
+  .title {
+    font-size: 2.2rem;    /* Shrink title from 3.2rem */
+    margin-bottom: 15px;
+  }
+
+  .imageCircle {
+    width: 120px;         /* Smaller image circle (was 160px) */
+    height: 120px;
+    border-width: 3px;
+  }
+
+  .imageContainer {
+    margin-bottom: 15px;  /* Less space below image */
+  }
+
+  .messageBox {
+    padding: 10px;
+    min-height: auto;     /* Let height adjust automatically */
+    line-height: 28px;    /* Tighter line spacing for text */
+    background-size: 100% 28px; /* Adjust lines to match new spacing */
+  }
+
+  .marathiPart {
+    font-size: 0.9rem;    /* Smaller Marathi text */
+    margin-top: -5px;
+  }
+
+  .englishPart {
+    font-size: 1rem;      /* Smaller English text */
+    margin-top: 5px;
+  }
+
+  .cornerRose {
+    font-size: 1.5rem;    /* Smaller corner roses */
+  }
+}

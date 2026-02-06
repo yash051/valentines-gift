@@ -1,0 +1,184 @@
+/* app/valentines-day/valentine.module.css */
+
+/* Premium Romantic Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Gotu&family=Cinzel+Decorative:wght@700&display=swap');
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* Romantic Bokeh Background */
+  background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+  font-family: 'Gotu', sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Floating Background Particles */
+.bgEmoji {
+  position: absolute;
+  font-size: 2rem;
+  animation: floatUp 12s linear infinite;
+  z-index: 0;
+  opacity: 0;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(110vh) scale(0.5) rotate(0deg); opacity: 0; }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.6; }
+  100% { transform: translateY(-10vh) scale(1.2) rotate(360deg); opacity: 0; }
+}
+
+.card {
+  width: 90%;
+  max-width: 480px;
+  /* Glassmorphism Effect */
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 30px;
+  padding: 40px 20px;
+  /* Glowing Border Animation */
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+  to { box-shadow: 0 0 30px rgba(255, 64, 129, 0.5); }
+}
+
+/* Emojis ON the card (Stickers) */
+.cardDecor {
+  position: absolute;
+  font-size: 1.8rem;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+  animation: bounce 2s infinite ease-in-out;
+  cursor: default;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Specific positions */
+.decor1 { top: 15px; left: 15px; transform: rotate(-15deg); animation-delay: 0s; }
+.decor2 { top: 15px; right: 15px; transform: rotate(15deg); animation-delay: 0.5s; }
+.decor3 { bottom: 20px; left: 15px; font-size: 1.5rem; animation-delay: 1s; }
+.decor4 { bottom: 20px; right: 15px; font-size: 1.5rem; animation-delay: 1.5s; }
+.decor5 { top: 160px; right: 40px; font-size: 1.2rem; opacity: 0.8; }
+.decor6 { top: 160px; left: 40px; font-size: 1.2rem; opacity: 0.8; }
+
+.title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.2rem;
+  /* Deep Red Gradient Text */
+  background: linear-gradient(to right, #b71c1c, #d81b60);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  filter: drop-shadow(2px 2px 2px rgba(255,255,255,0.8));
+  width: 100%;
+  line-height: 1.1;
+}
+
+.imageFrame {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin-bottom: 30px;
+}
+
+.imageCircle {
+  width: 120%;
+  height: 100%;
+  left: -10%;
+  background-color: white;
+  border-radius: 25px;
+  border: 4px solid white;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  position: relative; /* Needed for Next/Image */
+  z-index: 2;
+}
+
+/* The Note Area */
+.messageBox {
+  background-color: #fff;
+  width: 85%;
+  min-height: 150px;
+  border-radius: 12px;
+  padding: 15px 10px;
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  
+  /* Classy Red Lines */
+  background-image: repeating-linear-gradient(white 0px, white 33px, #ffcdd2 34px);
+  line-height: 34px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(-1deg);
+}
+
+.marathiPart {
+  font-family: 'Gotu', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #b71c1c;
+  text-align: center;
+  margin-bottom: 5px;
+  margin-top: -10px; /* Adjusted for alignment */
+  white-space: pre-line;
+  width: 100%;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 600px) {
+  .card {
+    width: 85%;
+    padding: 30px 15px;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    margin-top: 10px;
+  }
+
+  .imageFrame {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 25px;
+  }
+
+  .messageBox {
+    width: 95%;
+    padding: 10px;
+  }
+  
+  .marathiPart {
+    font-size: 1rem;
+    line-height: 34px;
+  }
+  
+  .cardDecor {
+    font-size: 1.4rem;
+  }
+}

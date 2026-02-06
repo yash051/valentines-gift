@@ -1,0 +1,162 @@
+/* app/kiss-day/kiss.module.css */
+
+/* Importing romantic fonts */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Gotu&family=Dancing+Script:wght@600&display=swap');
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #ffebee; /* Very Light Red Background */
+  font-family: 'Gotu', sans-serif;
+  position: relative;
+}
+
+.card {
+  width: 90%;
+  max-width: 450px;
+  /* Romantic Red/Pink Gradient */
+  background: linear-gradient(135deg, #ff5252 0%, #ff80ab 100%);
+  border-radius: 25px;
+  padding: 35px 20px;
+  box-shadow: 0 15px 35px rgba(255, 82, 82, 0.3);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid white;
+}
+
+/* Decorative Corners with Heartbeat Animation */
+.cornerIcon {
+  position: absolute;
+  font-size: 1.8rem;
+  cursor: default;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  40% { transform: scale(1); }
+  60% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Adjusting rotations for lips/hearts */
+.topLeft { top: 15px; left: 15px; transform: rotate(-25deg); }
+.topRight { top: 15px; right: 15px; transform: rotate(25deg); }
+.bottomLeft { bottom: 15px; left: 15px; transform: rotate(-25deg); }
+.bottomRight { bottom: 15px; right: 15px; transform: rotate(25deg); }
+
+.title {
+  font-family: 'Great Vibes', cursive; /* Elegant Script */
+  font-size: 2.8rem;
+  color: #fff;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  width: 100%;
+  line-height: 1.2;
+}
+
+.imageCircle {
+  width: 150px;
+  height: 150px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-bottom: 25px;
+  border: 5px solid rgba(255,255,255,0.8);
+  /* A glowing shadow */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Needed for Next/Image */
+}
+
+/* The Note Area */
+.messageBox {
+  background-color: #fff;
+  width: 80%;
+  min-height: 160px;
+  border-radius: 15px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+  /* Lines are Soft Pink */
+  background-image: repeating-linear-gradient(white 0px, white 33px, #f8bbd0 34px);
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- MARATHI STYLE --- */
+.marathiPart {
+  font-family: 'Gotu', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #c62828; /* Deep Red */
+  text-align: center;
+  line-height: 34px;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+/* --- ENGLISH STYLE --- */
+.englishPart {
+  font-family: 'Dancing Script', cursive; 
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #b71c1c; /* Deep red */
+  text-align: center;
+  line-height: 34px; 
+  width: 100%;
+  letter-spacing: 0.5px;
+  margin-top: 0;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 600px) {
+  .card {
+    width: 85%;
+    padding: 25px 15px;
+  }
+  
+  .title {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+  }
+
+  .imageCircle {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 20px;
+  }
+
+  .messageBox {
+    width: 100%;
+    min-height: auto;
+    padding-bottom: 15px;
+  }
+  
+  .marathiPart {
+    font-size: 1rem;
+  }
+  
+  .englishPart {
+    font-size: 1.3rem;
+  }
+  
+  .cornerIcon {
+    font-size: 1.5rem;
+  }
+}

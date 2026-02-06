@@ -1,0 +1,150 @@
+/* app/hug-day/hug.module.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Gotu&family=Dancing+Script:wght@600&display=swap');
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* Lighter Mint background */
+  background-color: #e0f2f1; 
+  font-family: 'Gotu', sans-serif;
+  position: relative;
+}
+
+.card {
+  width: 90%;
+  max-width: 450px;
+  /* Fresh Teal/Green Gradient */
+  background: linear-gradient(135deg, #4db6ac 0%, #009688 100%);
+  border-radius: 25px;
+  padding: 35px 20px;
+  box-shadow: 0 15px 35px rgba(0, 150, 136, 0.3);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* White border */
+  border: 4px solid #b2dfdb; 
+}
+
+/* Static Corner Decorations */
+.cornerIcon {
+  position: absolute;
+  font-size: 1.8rem;
+  color: white;
+  opacity: 0.9;
+  cursor: default;
+}
+.topLeft { top: 15px; left: 15px; transform: rotate(-45deg); }
+.topRight { top: 15px; right: 15px; transform: rotate(45deg); }
+.bottomLeft { bottom: 15px; left: 15px; transform: rotate(-135deg); }
+.bottomRight { bottom: 15px; right: 15px; transform: rotate(135deg); }
+
+.title {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.4rem;
+  color: #ffffff; /* White title */
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  width: 100%;
+}
+
+.imageCircle {
+  width: 150px;
+  height: 150px;
+  background-color: #e0f2f1;
+  border-radius: 50%;
+  margin-bottom: 25px;
+  border: 5px solid rgba(255,255,255,0.8);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Needed for Next/Image */
+}
+
+/* The Classic Lined Note Area */
+.messageBox {
+  background-color: #fff;
+  width: 85%;
+  min-height: 160px;
+  border-radius: 12px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+  /* Lines are Soft Teal */
+  background-image: repeating-linear-gradient(white 0px, white 33px, #b2dfdb 34px);
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.marathiPart {
+  font-family: 'Gotu', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  /* Dark Green/Teal Text */
+  color: #00695c; 
+  text-align: center;
+  line-height: 34px;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.englishPart {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  /* Slightly lighter Teal */
+  color: #00897b; 
+  text-align: center;
+  line-height: 34px;
+  width: 100%;
+  margin-top: 0;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 600px) {
+  .card {
+    width: 85%;
+    padding: 25px 15px;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  .imageCircle {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 20px;
+  }
+
+  .messageBox {
+    width: 100%;
+    min-height: auto;
+    padding-bottom: 15px;
+  }
+  
+  .marathiPart {
+    font-size: 0.95rem;
+  }
+  
+  .englishPart {
+    font-size: 1.2rem;
+  }
+  
+  .cornerIcon {
+    font-size: 1.5rem;
+  }
+}
