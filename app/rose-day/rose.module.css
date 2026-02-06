@@ -181,3 +181,22 @@
     font-size: 1.5rem;    /* Smaller corner roses */
   }
 }
+
+/* Falling Petals Animation */
+.petal {
+  position: absolute;
+  top: -10%;
+  width: 15px;
+  height: 15px;
+  background-color: #ff4081; /* Deep Pink */
+  border-radius: 15px 0px 15px 0px; /* Leaf/Petal shape */
+  opacity: 0.8;
+  animation: fall linear infinite;
+  z-index: 1; /* Behind the card */
+  pointer-events: none; /* Let clicks pass through */
+}
+
+@keyframes fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}

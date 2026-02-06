@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import GiftCountdown from './GiftCountdown';
 
 interface GiftCardProps {
   day: {
@@ -67,9 +68,9 @@ export default function GiftCard({ day }: GiftCardProps) {
       <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-10 p-4 text-center">
         {isLocked ? (
           <>
-            <span className="text-4xl mb-2 drop-shadow-lg">🔒</span>
+            <GiftCountdown targetDate={day.date} />
             <h3 className="text-2xl font-bold drop-shadow-lg">{day.title}</h3>
-            <p className="text-sm mt-2 opacity-90">Unlocks on {day.date}</p>
+            <p className="text-sm mt-2 opacity-90">*I won't say sorry for make you wait</p>
           </>
         ) : (
           <Link href={day.path} className="absolute inset-0 flex flex-col items-center justify-center">
@@ -90,7 +91,7 @@ export default function GiftCard({ day }: GiftCardProps) {
               isLocked ? 'bg-red-600' : 'bg-green-500'
             }`}
           >
-            {isLocked ? timeLeft : 'OPEN!'}
+            From ur Hubby
           </div>
         </div>
       </div>

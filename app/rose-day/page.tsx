@@ -6,22 +6,33 @@ import styles from './rose.module.css'; // Import the CSS file we just made
 import PageMusic from '../../components/PageMusic';
 
 export default function RoseDay() {
+
+	// Create an array for 15 petals
+  const petals = Array.from({ length: 15 });
   return (
     <div className={styles.container}>
 
-      <PageMusic src="/music/rose.mp3" />
+     {/* 🎵 1. YOUR NEW SONG */}
+      <PageMusic src="/music/harvu_zara_v1.mp3" />
+	
+{/* 🌸 2. FALLING PETALS */}
+      {petals.map((_, i) => (
+        <div 
+          key={i} 
+          className={styles.petal}
+          style={{
+            left: `${Math.random() * 100}%`, // Random horizontal position
+            animationDuration: `${Math.random() * 5 + 5}s`, // Random speed (5-10s)
+            animationDelay: `${Math.random() * 5}s`, // Random start time
+            backgroundColor: Math.random() > 0.5 ? '#ff4081' : '#e91e63' // Two shades of pink
+          }}
+        />
+      ))}
+
       {/* Back Button */}
       <Link href="/" className="absolute top-5 left-5 text-pink-600 hover:text-pink-800 z-50 font-bold">
         ← Back
       </Link>
-
-      {/* Floating Petals */}
-      <div className={`${styles.petal} ${styles.p1}`}></div>
-      <div className={`${styles.petal} ${styles.p2}`}></div>
-      <div className={`${styles.petal} ${styles.p3}`}></div>
-      <div className={`${styles.petal} ${styles.p4}`}></div>
-      <div className={`${styles.petal} ${styles.p5}`}></div>
-      <div className={`${styles.petal} ${styles.p6}`}></div>
 
       {/* The Card */}
       <div className={styles.card}>

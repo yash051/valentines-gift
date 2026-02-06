@@ -23,7 +23,7 @@ export default function Home() {
           {/* Header Section */}
           <div className="text-center pt-10 px-4">
             <h1 className="text-4xl md:text-6xl font-bold text-pink-500 mb-2 font-serif">
-              Valentine's Week ❤️
+             Our <br /> Valentine's Week ❤️
             </h1>
             <p className="text-gray-400 text-sm md:text-base">
               Swipe to see your surprises...

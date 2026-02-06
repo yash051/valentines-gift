@@ -1,7 +1,7 @@
 export const valentineDays = [
   {
     id: '7',
-    date: '2026-02-06',
+    date: '2026-02-07T00:00:00',
     title: 'Rose Day 🌹',
     description: 'A rose for the most beautiful person I know.',
     image: '/images/couple_images/Rose_Day.webp',
@@ -9,7 +9,7 @@ export const valentineDays = [
   },
   {
     id: '8',
-    date: '2026-02-06',
+    date: '2026-02-08T00:00:00',
     title: 'Propose Day 💍',
     description: 'Thinking about our future together...',
     image: '/images/couple_images/Propose_Day.webp',
@@ -17,7 +17,7 @@ export const valentineDays = [
   },
   {
     id: '9',
-    date: '2026-02-06',
+    date: '2026-02-09T00:00:00',
     title: 'Chocolate Day 🍫',
     description: 'Something sweet for my sweetheart.',
     image: '/images/couple_images/Chocolate_Day.webp',
@@ -25,7 +25,7 @@ export const valentineDays = [
   },
   {
     id: '10',
-    date: '2026-02-06',
+    date: '2026-02-10T00:00:00',
     title: 'Teddy Day 🧸',
     description: 'A warm hug in the form of a bear.',
     image: '/images/couple_images/Teddy_Day.webp',
@@ -33,7 +33,7 @@ export const valentineDays = [
   },
   {
     id: '11',
-    date: '2026-02-06',
+    date: '2026-02-11T00:00:00',
     title: 'Promise Day 🤞',
     description: 'My vows to you, today and forever.',
     image: '/images/couple_images/Promise_Day.webp',
@@ -41,7 +41,7 @@ export const valentineDays = [
   },
   {
     id: '12',
-    date: '2026-02-06',
+    date: '2026-02-12T00:00:00',
     title: 'Hug Day 🤗',
     description: 'Sending you the tightest hug ever.',
     image: '/images/couple_images/Hug_Day.webp',
@@ -49,7 +49,7 @@ export const valentineDays = [
   },
   {
     id: '13',
-    date: '2026-02-06',
+    date: '2026-02-13T00:00:00',
     title: 'Kiss Day 💋',
     description: 'Sealed with a kiss.',
     image: '/images/couple_images/Kiss_Day.webp',
@@ -57,7 +57,7 @@ export const valentineDays = [
   },
   {
     id: '14',
-    date: '2026-02-06',
+    date: '2026-02-14T00:00:00',
     title: 'Valentine\'s Day ❤️',
     description: 'My heart, my soul, my everything.',
     image: '/images/couple_images/Valentines_Day.webp',
