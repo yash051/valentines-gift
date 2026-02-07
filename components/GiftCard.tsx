@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -18,31 +18,17 @@ interface GiftCardProps {
 }
 
 export default function GiftCard({ day }: GiftCardProps) {
-  const [timeLeft, setTimeLeft] = useState<string>('');
-  const [isLocked, setIsLocked] = useState(true);
+  // 1. Initialize state by checking date IMMEDIATELY (prevents "Locked" flash on load)
+  const [isLocked, setIsLocked] = useState(() => {
+    const targetDate = new Date(day.date).getTime();
+    const now = new Date().getTime();
+    return targetDate > now;
+  });
 
-  useEffect(() => {
-    const checkTime = () => {
-      const targetDate = new Date(day.date + 'T00:00:00'); 
-      const now = new Date();
-      const diff = targetDate.getTime() - now.getTime();
-
-      if (diff <= 0) {
-        setIsLocked(false);
-        setTimeLeft('OPEN NOW');
-      } else {
-        setIsLocked(true);
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        setTimeLeft(`${days}d ${hours}h ${mins}m`);
-      }
-    };
-
-    checkTime();
-    const timer = setInterval(checkTime, 60000);
-    return () => clearInterval(timer);
-  }, [day.date]);
+  // 2. Callback function for when the timer finishes
+  const handleUnlock = () => {
+    setIsLocked(false);
+  };
 
   return (
     <motion.div
@@ -51,7 +37,7 @@ export default function GiftCard({ day }: GiftCardProps) {
         isLocked ? 'cursor-not-allowed' : 'cursor-pointer'
       }`}
     >
-      {/* 1. BACKGROUND IMAGE */}
+      {/* BACKGROUND IMAGE */}
       <Image
         src={day.image}
         alt={day.title}
@@ -61,29 +47,36 @@ export default function GiftCard({ day }: GiftCardProps) {
         }`}
       />
 
-      {/* 2. DARK OVERLAY (Makes text readable) */}
+      {/* DARK OVERLAY */}
       <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-all" />
 
-      {/* 3. CONTENT (Text & Icons) */}
+      {/* CONTENT */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-10 p-4 text-center">
         {isLocked ? (
           <>
-            <GiftCountdown targetDate={day.date} />
-            <h3 className="text-2xl font-bold drop-shadow-lg">{day.title}</h3>
-            <p className="text-sm mt-2 opacity-90">*I won't say sorry for make you wait</p>
+            {/* 🎁 THE FIX: Pass the onComplete prop here */}
+            <GiftCountdown 
+              targetDate={day.date} 
+              onComplete={handleUnlock} 
+            />
+            
+            <h3 className="text-2xl font-bold drop-shadow-lg mt-4">{day.title}</h3>
+            <p className="text-sm mt-2 opacity-90 font-light italic">
+              *I won't say sorry for make you wait
+            </p>
           </>
         ) : (
-          <Link href={day.path} className="absolute inset-0 flex flex-col items-center justify-center">
-            <span className="text-4xl mb-2 animate-bounce">🎁</span>
-            <h3 className="text-2xl font-bold drop-shadow-lg text-pink-200">{day.title}</h3>
-            <p className="text-sm mt-2 bg-pink-600 px-3 py-1 rounded-full shadow-lg">
+          <Link href={day.path} className="absolute inset-0 flex flex-col items-center justify-center w-full h-full">
+            <span className="text-5xl mb-3 animate-bounce">🎁</span>
+            <h3 className="text-3xl font-bold drop-shadow-lg text-pink-200">{day.title}</h3>
+            <div className="mt-4 bg-pink-600 px-6 py-2 rounded-full shadow-lg hover:bg-pink-500 transition-colors">
               Click to Open
-            </p>
+            </div>
           </Link>
         )}
       </div>
 
-      {/* 4. RIBBON (Top Right) */}
+      {/* RIBBON */}
       <div className="absolute top-0 right-0 z-20">
         <div className="w-32 h-8 absolute top-4 -right-8">
           <div
