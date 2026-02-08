@@ -1,6 +1,4 @@
 /* app/chocolate-day/chocolate.module.css */
-
-/* Importing fonts: 'Lobster' for Title, 'Gotu' for Marathi, 'Dancing Script' for English */
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Gotu&family=Dancing+Script:wght@600&display=swap');
 
 .container {
@@ -8,119 +6,114 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #efebe9; 
+  width: 100%;
+  /* Creamy Background */
+  background: radial-gradient(circle at center, #efebe9 0%, #d7ccc8 100%);
   font-family: 'Gotu', sans-serif;
   position: relative;
+  overflow: hidden;
+  perspective: 1000px; /* Essential for 3D effect */
+  padding: 20px; /* Prevents card from touching edges on mobile */
 }
 
 .card {
-  width: 90%;
-  max-width: 450px;
-  /* Rich Dark Chocolate Gradient */
-  background: linear-gradient(135deg, #5d4037 0%, #3e2723 100%);
+  width: 100%;
+  max-width: 380px; /* Slightly reduced max-width for better mobile safety */
+  /* Premium Dark Chocolate Gradient */
+  background: linear-gradient(145deg, #4e342e, #3e2723);
   border-radius: 20px;
-  padding: 35px 20px;
-  /* Gold border wrapper effect */
-  border: 4px solid #ffd700;
-  box-shadow: 0 15px 30px rgba(62, 39, 35, 0.5);
+  padding: 40px 20px;
+  /* Gold Border */
+  border: 2px solid #ffca28;
+  /* Deep 3D Shadow */
+  box-shadow: 
+    0 20px 50px rgba(0,0,0,0.5),
+    0 0 0 6px #5d4037, /* Outer Ring */
+    inset 0 0 20px rgba(0,0,0,0.8); /* Inner Depth */
   text-align: center;
   position: relative;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transform-style: preserve-3d; /* Make children 3D */
+  margin: 0 auto; /* Center alignment safeguard */
 }
 
-/* Decorative Corners */
-.cornerIcon {
+/* The Glossy Shine Overlay */
+.shine {
   position: absolute;
-  font-size: 2rem;
-  filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.3));
-  cursor: default;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    125deg, 
+    rgba(255,255,255,0) 0%, 
+    rgba(255,255,255,0.05) 40%, 
+    rgba(255,255,255,0.2) 50%, 
+    rgba(255,255,255,0.05) 60%, 
+    rgba(255,255,255,0) 100%
+  );
+  border-radius: 18px;
+  pointer-events: none;
+  z-index: 10;
 }
-.topLeft { top: 15px; left: 15px; transform: rotate(-20deg); }
-.topRight { top: 15px; right: 15px; transform: rotate(20deg); }
-.bottomLeft { bottom: 15px; left: 15px; }
-.bottomRight { bottom: 15px; right: 15px; }
 
 .title {
   font-family: 'Lobster', cursive;
-  font-size: 2.3rem;
-  /* Gold Gradient Text */
-  background: linear-gradient(to right, #fff176, #ffd700, #ffb300);
+  font-size: 2.2rem;
+  /* Liquid Gold Text */
+  background: linear-gradient(to bottom, #fff59d, #ffca28, #ff6f00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-top: 10px;
+  filter: drop-shadow(0px 2px 0px rgba(0,0,0,0.6));
   margin-bottom: 20px;
-  filter: drop-shadow(1px 2px 0px rgba(0,0,0,0.5));
-  width: 100%;
+  transform: translateZ(30px); /* Popped out text */
+  line-height: 1.2;
 }
 
 .imageCircle {
-  width: 150px;
-  height: 150px;
-  background-color: #fff;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   margin-bottom: 25px;
-  border: 4px solid #ffd700;
-  box-shadow: 0 0 0 4px #4e342e; 
+  border: 4px solid #ffca28;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative; /* Needed for Next/Image */
-}
-
-/* The Note Area Container */
-.messageBox {
-  background-color: #fff;
-  width: 85%;
-  min-height: 180px;
-  border-radius: 8px;
-  padding: 10px 15px;
-  box-sizing: border-box;
   position: relative;
-  box-shadow: inset 0 0 10px rgba(62, 39, 35, 0.1);
-
-  /* Lines are Caramel Color */
-  background-image: repeating-linear-gradient(white 0px, white 33px, #ffcc80 34px);
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  transform: translateZ(20px); /* Popped out image */
+  flex-shrink: 0; /* Prevents squishing on small heights */
 }
 
-/* --- MARATHI STYLE --- */
-.marathiPart {
-  font-family: 'Gotu', sans-serif;
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: #3e2723; /* Deep Dark Chocolate */
-  text-align: center;
-  line-height: 34px;
-  margin-bottom: 0px;
+.messageBox {
+  background-color: #fff8e1;
   width: 100%;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
+  border: 1px solid #ffecb3;
+  transform: translateZ(15px); /* Slightly popped out */
 }
 
-/* --- ENGLISH STYLE --- */
-.englishPart {
-  font-family: 'Dancing Script', cursive;
-  font-size: 1.4rem;
-  color: #bf360c; /* Burnt Caramel */
-  text-align: center;
-  line-height: 34px;
-  width: 100%;
-  margin-top: 0px;
+/* Corner Decorations */
+.cornerIcon {
+  position: absolute;
+  font-size: 2rem;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.4));
+  z-index: 20;
 }
+.topLeft { top: -15px; left: -15px; transform: rotate(-20deg) translateZ(40px); }
+.topRight { top: -15px; right: -15px; transform: rotate(20deg) translateZ(40px); }
+.bottomLeft { bottom: -15px; left: -15px; transform: rotate(10deg) translateZ(40px); }
+.bottomRight { bottom: -15px; right: -15px; transform: rotate(-10deg) translateZ(40px); }
 
-/* --- MOBILE RESPONSIVENESS --- */
-@media (max-width: 600px) {
+/* --- MOBILE OPTIMIZATIONS --- */
+@media (max-width: 480px) {
   .card {
-    width: 85%;
-    padding: 25px 15px;
+    padding: 30px 15px;
+    width: 100%;
   }
-  
+
   .title {
     font-size: 1.8rem;
   }
@@ -131,17 +124,9 @@
     margin-bottom: 20px;
   }
 
-  .messageBox {
-    width: 100%;
-    min-height: auto;
-    padding-bottom: 15px;
-  }
-  
-  .marathiPart {
-    font-size: 0.95rem;
-  }
-  
-  .englishPart {
-    font-size: 1.1rem;
-  }
+  /* Pull corner icons in slightly so they don't overflow the screen */
+  .topLeft { top: -10px; left: -5px; }
+  .topRight { top: -10px; right: -5px; }
+  .bottomLeft { bottom: -10px; left: -5px; }
+  .bottomRight { bottom: -10px; right: -5px; }
 }
