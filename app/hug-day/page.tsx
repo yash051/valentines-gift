@@ -3,10 +3,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './hug.module.css';
+import PageMusic from '../../components/PageMusic';
 
 export default function HugDay() {
   return (
     <div className={styles.container}>
+	<PageMusic src="/music/ishq_risk_v1.opus" />
       
       {/* Back Button */}
       <Link href="/" className="absolute top-5 left-5 text-[#00695c] hover:text-[#004d40] z-50 font-bold font-sans">
