@@ -1,6 +1,7 @@
 /* app/promise-day/promise.module.css */
 
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Gotu&family=Pacifico&display=swap');
+/* Added 'Caveat' for the English handwritten look */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Dancing+Script:wght@700&family=Gotu&family=Pacifico&display=swap');
 
 .container {
   display: flex;
@@ -35,6 +36,7 @@
   font-size: 1.8rem;
   opacity: 0.8;
   cursor: default;
+  z-index: 10;
 }
 .topLeft { top: 15px; left: 15px; }
 .topRight { top: 15px; right: 15px; }
@@ -63,43 +65,72 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  position: relative; /* Needed for Next/Image */
+  position: relative;
+  flex-shrink: 0;
 }
 
 /* The Lined Note Area */
 .messageBox {
   background-color: white;
-  width: 85%;
-  min-height: 180px;
+  width: 100%;
+  min-height: 150px; 
+  height: auto;      
   border-radius: 15px;
-  padding: 10px 15px;
+  padding: 20px 15px; 
   box-sizing: border-box;
   position: relative;
   box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  
-  /* Soft Pink Lines */
+  overflow: hidden; 
+
+  /* Notebook Lines */
   background-image: repeating-linear-gradient(white 0px, white 33px, #f3e5f5 34px);
-  line-height: 34px;
+  background-attachment: local;
+  border: 1px solid #fff0f5;
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
+/* NOTE: All text inside messageBox must have line-height: 34px 
+   to align with the background lines.
+*/
 
 .marathiPart {
   font-family: 'Gotu', sans-serif;
   font-weight: 700;
   font-size: 1.1rem;
   color: #4a148c;
-  text-align: center;
-  margin-bottom: 5px;
+  line-height: 34px; 
+  margin-bottom: 0;
 }
 
 .englishPart {
   font-family: 'Dancing Script', cursive;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: #ad1457;
-  text-align: center;
-  margin-top: 5px;
+  line-height: 34px;
+}
+
+.vowTitle {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8rem;
+  color: #880e4f;
+  line-height: 34px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.vowBody {
+  /* CHANGED: Using Caveat for a natural handwritten look */
+  font-family: 'Caveat', cursive; 
+  
+  /* Increased size because handwriting fonts look smaller */
+  font-size: 1.5rem; 
+  
+  color: #3e2723;
+  line-height: 34px; /* Strictly kept to match lines */
+  font-weight: 500;
 }
 
 /* --- MOBILE RESPONSIVENESS --- */
@@ -120,17 +151,12 @@
     margin-bottom: 20px;
   }
 
-  .messageBox {
-    width: 100%;
-    min-height: auto;
-    padding-bottom: 15px;
+  .vowTitle {
+    font-size: 1.6rem;
   }
   
-  .marathiPart {
-    font-size: 0.95rem;
-  }
-  
-  .englishPart {
-    font-size: 1.2rem;
+  /* Adjust for mobile if needed, but keep line-height 34px */
+  .vowBody {
+    font-size: 1.35rem; 
   }
 }
