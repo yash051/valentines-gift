@@ -143,14 +143,15 @@ export default function HugDay() {
             backgroundImage: "repeating-linear-gradient(white 0px, white 33px, #b2dfdb 34px)"
           }}
         >
-          {/* Marathi Text */}
-          <p className="font-[Gotu] text-[#00695c] font-bold text-lg text-center leading-[34px] m-0 w-full">
+          {/* Marathi Text - Using Gotu */}
+          <p className="font-[Gotu] text-[#00695c] font-bold text-lg text-center leading-[34px] m-0 w-full tracking-wide">
             काही क्षण शब्दांचे नसतात, <br />
             ते फक्त जवळ असण्याचे असतात...
           </p>
           
-          {/* English Text */}
-          <p className="font-[Dancing Script] text-[#00897b] text-2xl text-center leading-[34px] m-0 w-full font-cursive">
+          {/* English Text - Using Sacramento */}
+          {/* Increased size to 2.2rem (text-4xl approx) because Sacramento runs a bit small */}
+          <p className="font-['Sacramento'] text-[#00897b] text-[2.2rem] text-center leading-[34px] m-0 w-full mt-2">
             Just a hug, <br />
             where everything feels blessed.
           </p>

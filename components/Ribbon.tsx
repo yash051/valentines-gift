@@ -46,7 +46,7 @@ export const RibbonFront = ({ isHugging }: { isHugging: boolean }) => {
       className="absolute z-20 pointer-events-none"
       initial={{ scale: 0, opacity: 0 }}
       animate={{
-        scale: isHugging ? 1 : 0,
+        scale: isHugging ? 1.4 : 0,
         opacity: isHugging ? 1 : 0,
       }}
       transition={ribbonTransition}
@@ -54,7 +54,7 @@ export const RibbonFront = ({ isHugging }: { isHugging: boolean }) => {
       <svg
         width="200"
         height="160"
-        viewBox="0 0 200 160"
+        viewBox="0 0 200 100"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="drop-shadow-xl overflow-visible"
