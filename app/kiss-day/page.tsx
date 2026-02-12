@@ -3,10 +3,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './kiss.module.css';
+import PageMusic from "@/components/PageMusic"; // Ensure this path is correct
 
 export default function KissDay() {
   return (
     <div className={styles.container}>
+<PageMusic src="/music/saj_hyo_tuza_v1.mp3" />
       
       {/* Back Button */}
       <Link href="/" className="absolute top-5 left-5 text-[#b71c1c] hover:text-[#d32f2f] z-50 font-bold font-sans">
@@ -24,11 +26,10 @@ export default function KissDay() {
 
         <div className={styles.imageCircle}>
            {/* Using .webp */}
-           <Image 
-             src="/images/couple_images/Kiss_Day.webp" 
-             alt="Kiss Day" 
-             fill
-             className="object-cover"
+           <img 
+             src="https://media1.giphy.com/media/v1.Y2lkPTI2MmQ0YzRlb3locGRtZGJpb3c2bTMyM2tjZzQwdGZycG5wZzJiZ2k0cmcwamk2ZSZlcD12MV9naWZzX2dpZklkJmN0PXM/MGS5vaOVCFMBmjB8Ej/200.webp" 
+             alt="Kiss Day Sticker" 
+             style={{ width: '100%', height: '100%', objectFit: 'cover', animation: 'fadePulse 2s infinite alternate'}}
            />
         </div>
 

@@ -11,6 +11,19 @@
   background-color: #ffebee; /* Very Light Red Background */
   font-family: 'Gotu', sans-serif;
   position: relative;
+  overflow: hidden; /* Prevents scrollbars if animations move slightly out */
+}
+
+/* 2) SLIGHT PARALLAX MOVEMENT (Floating Effect) */
+@keyframes floatCard {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); } /* Moves up slightly */
+  100% { transform: translateY(0px); }
+}
+
+@keyframes fadePulse {
+  0% { opacity: 0.8; }
+  100% { opacity: 1; }
 }
 
 .card {
@@ -20,7 +33,10 @@
   background: linear-gradient(135deg, #ff5252 0%, #ff80ab 100%);
   border-radius: 25px;
   padding: 35px 20px;
-  box-shadow: 0 15px 35px rgba(255, 82, 82, 0.3);
+  
+  /* Softer shadow to match the floating feel */
+  box-shadow: 0 20px 40px rgba(255, 82, 82, 0.4);
+  
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -28,6 +44,9 @@
   flex-direction: column;
   align-items: center;
   border: 2px solid white;
+
+  /* Apply the Floating Animation */
+  animation: floatCard 6s ease-in-out infinite;
 }
 
 /* Decorative Corners with Heartbeat Animation */
@@ -63,20 +82,41 @@
   line-height: 1.2;
 }
 
+/* 1) REPLACED PLAIN BORDER WITH SOFT GLOW PULSE */
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    /* Glow expands and becomes brighter */
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.9), 0 0 10px rgba(255, 255, 255, 0.6) inset;
+    transform: scale(1.03); /* Slight zoom */
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    transform: scale(1);
+  }
+}
+
 .imageCircle {
   width: 150px;
   height: 150px;
   background-color: #fff;
   border-radius: 50%;
   margin-bottom: 25px;
-  border: 5px solid rgba(255,255,255,0.8);
-  /* A glowing shadow */
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  
+  /* Replaced thick solid border with a thinner, translucent one to let glow shine */
+  border: 3px solid rgba(255, 255, 255, 0.6);
+  
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative; /* Needed for Next/Image */
+  position: relative;
+  
+  /* Apply the Glow/Pulse Animation */
+  animation: glowPulse 3s infinite ease-in-out;
 }
 
 /* The Note Area */
