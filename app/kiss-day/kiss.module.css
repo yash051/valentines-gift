@@ -11,13 +11,35 @@
   background-color: #ffebee; /* Very Light Red Background */
   font-family: 'Gotu', sans-serif;
   position: relative;
-  overflow: hidden; /* Prevents scrollbars if animations move slightly out */
+  overflow: hidden; 
+}
+
+/* --- FOG OVERLAY --- */
+.fogCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  cursor: pointer;
+  touch-action: none; /* Critical: stops mobile scrolling while wiping */
+  
+  /* Smooth fade transition */
+  transition: opacity 1.5s ease-out;
+  opacity: 1;
+}
+
+/* Class to hide fog */
+.fogHidden {
+  opacity: 0;
+  pointer-events: none; /* Allows clicks to pass through immediately */
 }
 
 /* 2) SLIGHT PARALLAX MOVEMENT (Floating Effect) */
 @keyframes floatCard {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); } /* Moves up slightly */
+  50% { transform: translateY(-15px); }
   100% { transform: translateY(0px); }
 }
 
@@ -29,14 +51,10 @@
 .card {
   width: 90%;
   max-width: 450px;
-  /* Romantic Red/Pink Gradient */
   background: linear-gradient(135deg, #ff5252 0%, #ff80ab 100%);
   border-radius: 25px;
   padding: 35px 20px;
-  
-  /* Softer shadow to match the floating feel */
   box-shadow: 0 20px 40px rgba(255, 82, 82, 0.4);
-  
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -44,12 +62,9 @@
   flex-direction: column;
   align-items: center;
   border: 2px solid white;
-
-  /* Apply the Floating Animation */
   animation: floatCard 6s ease-in-out infinite;
 }
 
-/* Decorative Corners with Heartbeat Animation */
 .cornerIcon {
   position: absolute;
   font-size: 1.8rem;
@@ -65,14 +80,13 @@
   100% { transform: scale(1); }
 }
 
-/* Adjusting rotations for lips/hearts */
 .topLeft { top: 15px; left: 15px; transform: rotate(-25deg); }
 .topRight { top: 15px; right: 15px; transform: rotate(25deg); }
 .bottomLeft { bottom: 15px; left: 15px; transform: rotate(-25deg); }
 .bottomRight { bottom: 15px; right: 15px; transform: rotate(25deg); }
 
 .title {
-  font-family: 'Great Vibes', cursive; /* Elegant Script */
+  font-family: 'Great Vibes', cursive;
   font-size: 2.8rem;
   color: #fff;
   margin-top: 5px;
@@ -89,9 +103,8 @@
     transform: scale(1);
   }
   50% {
-    /* Glow expands and becomes brighter */
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.9), 0 0 10px rgba(255, 255, 255, 0.6) inset;
-    transform: scale(1.03); /* Slight zoom */
+    transform: scale(1.03);
   }
   100% {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
@@ -105,21 +118,33 @@
   background-color: #fff;
   border-radius: 50%;
   margin-bottom: 25px;
-  
-  /* Replaced thick solid border with a thinner, translucent one to let glow shine */
   border: 3px solid rgba(255, 255, 255, 0.6);
-  
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  
-  /* Apply the Glow/Pulse Animation */
   animation: glowPulse 3s infinite ease-in-out;
 }
 
-/* The Note Area */
+/* Added styling to prevent un-loaded image flash */
+.hiddenImage {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.visibleImage {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: fadePulse 2s infinite alternate;
+}
+
 .messageBox {
   background-color: #fff;
   width: 80%;
@@ -129,34 +154,29 @@
   box-sizing: border-box;
   position: relative;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-
-  /* Lines are Soft Pink */
   background-image: repeating-linear-gradient(white 0px, white 33px, #f8bbd0 34px);
-  
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-/* --- MARATHI STYLE --- */
 .marathiPart {
   font-family: 'Gotu', sans-serif;
   font-weight: 700;
   font-size: 1.1rem;
-  color: #c62828; /* Deep Red */
+  color: #c62828;
   text-align: center;
   line-height: 34px;
   width: 100%;
   margin-bottom: 0;
 }
 
-/* --- ENGLISH STYLE --- */
 .englishPart {
   font-family: 'Dancing Script', cursive; 
   font-size: 1.6rem;
   font-weight: 600;
-  color: #b71c1c; /* Deep red */
+  color: #b71c1c;
   text-align: center;
   line-height: 34px; 
   width: 100%;
@@ -166,37 +186,11 @@
 
 /* --- MOBILE RESPONSIVENESS --- */
 @media (max-width: 600px) {
-  .card {
-    width: 85%;
-    padding: 25px 15px;
-  }
-  
-  .title {
-    font-size: 2.2rem;
-    margin-bottom: 15px;
-  }
-
-  .imageCircle {
-    width: 130px;
-    height: 130px;
-    margin-bottom: 20px;
-  }
-
-  .messageBox {
-    width: 100%;
-    min-height: auto;
-    padding-bottom: 15px;
-  }
-  
-  .marathiPart {
-    font-size: 1rem;
-  }
-  
-  .englishPart {
-    font-size: 1.3rem;
-  }
-  
-  .cornerIcon {
-    font-size: 1.5rem;
-  }
+  .card { width: 85%; padding: 25px 15px; }
+  .title { font-size: 2.2rem; margin-bottom: 15px; }
+  .imageCircle { width: 130px; height: 130px; margin-bottom: 20px; }
+  .messageBox { width: 100%; min-height: auto; padding-bottom: 15px; }
+  .marathiPart { font-size: 1rem; }
+  .englishPart { font-size: 1.3rem; }
+  .cornerIcon { font-size: 1.5rem; }
 }
