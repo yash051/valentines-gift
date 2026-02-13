@@ -7,8 +7,9 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Sparkles, useTexture, Billboard } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import * as THREE from "three";
-import styles from "./Valentine1.module.css";
+import styles from "./Valentine.module.css";
 import PageMusic from '../../components/PageMusic';
+
 
 // --- THE LOADER CARD COMPONENT ---
 const ValentineLoader = () => {
@@ -218,8 +219,8 @@ export default function ValentinesDay() {
     const timer = setTimeout(() => {
       setIsLoaded(true);
       
-      // Attempt to play music when 3D scene loads
-          }, 11000);
+      
+    }, 11000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -227,7 +228,7 @@ export default function ValentinesDay() {
   return (
     <>
       {/* Background Audio Source */}
-	
+\
       <PageMusic src="/music/trdh.mp3" />
 
       {/* Show the Loader Card for the first 11 seconds */}
