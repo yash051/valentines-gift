@@ -7,7 +7,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Sparkles, useTexture, Billboard } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import * as THREE from "three";
-import styles from "./Valentine.module.css";
+import styles from "./Valentine1.module.css";
 import PageMusic from '../../components/PageMusic';
 
 // --- THE LOADER CARD COMPONENT ---
