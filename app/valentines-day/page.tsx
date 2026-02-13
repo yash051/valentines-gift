@@ -169,7 +169,10 @@ const DriftingPetals = ({ count = 80 }) => {
 const FramedPhoto = ({ textureUrl, size, glowColor = "#ffffff" }: { textureUrl: string, size: number, glowColor?: string }) => {
   const texture = useTexture(textureUrl);
   texture.anisotropy = 16;
-  const aspect = texture.image.width / texture.image.height;
+  
+  // FIXED: Tell TypeScript exactly what 'texture.image' is
+  const image = texture.image as { width: number; height: number };
+  const aspect = image.width / image.height;
   
   return (
     <Billboard follow={true}>
@@ -228,7 +231,6 @@ export default function ValentinesDay() {
   return (
     <>
       {/* Background Audio Source */}
-\
       <PageMusic src="/music/trdh.mp3" />
 
       {/* Show the Loader Card for the first 11 seconds */}
